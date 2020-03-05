@@ -1,0 +1,8 @@
+# Run the Django Web app.
+django: django-admin runserver "$WEB_HOST"
+
+# Monitor and rebuild all static/front-end assets.
+assets: npm run watch
+
+# Run Browser Sync proxied to the Django Web app.
+djsync: browser-sync start --proxy="$WEB_HOST"

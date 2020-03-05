@@ -1,0 +1,56 @@
+{
+  "name": "procfile",
+  "displayName": "Procfile",
+  "description": "Grammar for Procfiles",
+  "license": "BSD-3-Clause",
+  "version": "0.1.0",
+  "publisher": "benspaulding",
+  "author": {
+    "name": "Ben Spaulding",
+    "email": "ben@spaulding.im",
+    "url": "https://www.benspaulding.com"
+  },
+  "homepage": "https://github.com/benspaulding/vscode-procfile",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/benspaulding/vscode-procfile.git"
+  },
+  "bugs": {
+    "url": "https://github.com/benspaulding/vscode-procfile/issues"
+  },
+  "engines": {
+    "vscode": "^1.42.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "keywords": [
+    "heroku",
+    "procfile"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "procfile",
+        "aliases": [
+          "Procfile",
+          "procfile"
+        ],
+        "extensions": [
+          ".procfile"
+        ],
+        "filenames": [
+          "Procfile"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "procfile",
+        "scopeName": "source.procfile",
+        "path": "./syntaxes/procfile.tmLanguage.json"
+      }
+    ]
+  }
+}
