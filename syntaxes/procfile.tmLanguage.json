@@ -18,12 +18,12 @@
     "process": {
       "comment": "A named process to run",
       "contentName": "meta.function.procfile",
-      "begin": "^(?=\\w+:)",
+      "begin": "^(?=[\\w-]+:)",
       "end": "$",
       "patterns": [
         {
           "contentName": "support.function.procfile",
-          "begin": "^(?=\\w+:)",
+          "begin": "^(?=[\\w-]+:)",
           "end": "(?<=:)",
           "patterns": [
             {
@@ -34,17 +34,17 @@
             {
               "comment": "A process name",
               "name": "entity.name.function.procfile",
-              "match": "^\\w+(?=:)"
+              "match": "^[\\w-]+(?=:)"
             },
             {
               "name": "punctuation.separator.colon.procfile",
-              "match": "(?<=\\w):"
+              "match": "(?<=[\\w-]):"
             }
           ]
         },
         {
           "name": "meta.embedded.line.shell",
-          "begin": "(?<=\\w:)",
+          "begin": "(?<=[\\w-]:)",
           "end": "$",
           "patterns": [
             {
@@ -57,7 +57,7 @@
     "comment": {
       "comment": "A comment is anything that is not a process",
       "name": "comment.line.procfile",
-      "match": "^(?!\\w+:).*$"
+      "match": "^(?![\\w-]+:).*$"
     }
   }
 }

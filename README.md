@@ -5,7 +5,7 @@ A [Visual Studio Code][VSCode] [extension][VSCext] with support for
 
 ![syntax hilighting](assets/side-by-side.png)
 
-The `Procfile` is mostly know for its use by [Heroku][] and [Foreman][]. However it
+The `Procfile` is mostly known for its use by [Heroku][] and [Foreman][]. However it
 supported by a number of other services and utilities, and is extremely handy for
 development. With this `.env` file:
 
@@ -30,12 +30,19 @@ djsync: browser-sync start --proxy="$WEB_HOST" --port="$BROWSERSYNC_PORT"
 
 You can run `honcho start` and have it all up and running!
 
-## Foreman & Other Clones
+## Foreman & Clones
+
+The most used and robust are:
 
 - [Foreman][] (Ruby)
 - [Honcho][] (Python)
 - [Goreman][] (Go)
-- [node-foreman][noreman] (Node)
+
+Others include:
+
+- [node-foreman][Noreman] (Node) *— n.b. How on earth is this not named “Noreman”?
+  I insist on referring to it as such!*
+- [Shoreman][] (Shell)
 - [forego][] (Go)
 
 [VSCode]: https://code.visualstudio.com/
@@ -44,16 +51,39 @@ You can run `honcho start` and have it all up and running!
 [Foreman]: http://ddollar.github.io/foreman/
 [Honcho]: https://github.com/nickstenning/honcho
 [Goreman]: https://github.com/mattn/goreman
-[noreman]: https://github.com/strongloop/node-foreman
+[Noreman]: https://github.com/strongloop/node-foreman
+[Shoreman]: https://github.com/chrismytton/shoreman
 [forego]: https://github.com/ddollar/forego
 
-## Known Issues
+There is no published standard for `Procfile` syntax, but Foreman can be used as the
+reference implementation. Though the various runners recognize different things as
+comments, process, or errors, Foreman’s syntax is recognized by this extension.
 
-The `Procfile` grammar in this extension is currently modeled after [Honcho]’s
-parsing of `Procfile`s. Testing may be done in the future to be sure it hilights
-syntax that works for various process runners.
+| *`Procfile`* |  Foreman  |  Honcho   |  Goreman  |  Noreman  |  Shoreman  |  forego  |
+| ------------ |:---------:|:---------:|:---------:|:---------:|:----------:|:--------:|
+| `n0 …      ` |     #     |     #     |     #     |        ✗  |         ✗  |       ✗  |
+| `n1: …     ` |  ✓        |  ✓        |  ✓        |  ✓        |  ✓         |  ✓       |
+| ` n2: …    ` |     #     |     #     |  ✓        |        ✗  |  ✓         |       ✗  |
+| `n3 : …    ` |     #     |     #     |  ✓        |        ✗  |  ✓         |       ✗  |
+| `n4:…      ` |  ✓        |  ✓        |  ✓        |  ✓        |         ✗  |  ✓       |
+| `n 5: …    ` |     #     |     #     |  ✓        |        ✗  |  ✓   /  ✗  |       ✗  |
+| `# n6: …   ` |     #     |     #     |     #     |     #     |     #      |       ✗  |
+| `#n7: …    ` |     #     |     #     |     #     |     #     |     #      |       ✗  |
+| `n-8: …    ` |  ✓        |     #     |  ✓        |  ✓        |  ✓         |  ✓       |
+| `n9 :…     ` |     #     |     #     |  ✓        |        ✗  |  ✓         |       ✗  |
+
+|     *legend*      |     |
+| ----------------- |:---:|
+| valid process     |  ✓  |
+| comment / ignored |  #  |
+| error / hang      |  ✗  |
 
 ## Release Notes
+
+### 1.0.0
+
+Recognize process names containing a `-` (dash) as valid. This is based on testing
+Foreman and its clones to determine the most common subset of functionality.
 
 ### 0.1.1
 
