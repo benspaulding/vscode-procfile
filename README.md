@@ -5,8 +5,8 @@ A [Visual Studio Code][VSCode] [extension][VSCext] with support for
 
 ![syntax hilighting](assets/side-by-side.png)
 
-The `Procfile` is mostly known for its use by [Heroku][] and [Foreman][]. However it
-supported by a number of other services and utilities, and is extremely handy for
+The `Procfile` is mostly known for its use by [Heroku][] and [Foreman][]. However, it
+is supported by a number of other services and utilities, and is extremely handy for
 development. With this `.env` file:
 
 ```dotenv
