@@ -1,57 +1,66 @@
 {
-  "name": "procfile",
-  "displayName": "Procfile",
-  "description": "Grammar for Procfiles",
-  "license": "BSD-3-Clause",
-  "version": "1.0.0",
-  "icon": "assets/icon.png",
-  "publisher": "benspaulding",
-  "author": {
-    "name": "Ben Spaulding",
-    "email": "ben@spaulding.im",
-    "url": "https://www.benspaulding.com"
-  },
-  "homepage": "https://github.com/benspaulding/vscode-procfile",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/benspaulding/vscode-procfile.git"
-  },
-  "bugs": {
-    "url": "https://github.com/benspaulding/vscode-procfile/issues"
-  },
-  "engines": {
-    "vscode": "^1.42.0"
-  },
-  "categories": [
-    "Programming Languages"
-  ],
-  "keywords": [
-    "heroku",
-    "procfile"
-  ],
-  "contributes": {
-    "languages": [
-      {
-        "id": "procfile",
-        "aliases": [
-          "Procfile",
-          "procfile"
-        ],
-        "extensions": [
-          ".procfile"
-        ],
-        "filenames": [
-          "Procfile"
-        ],
-        "configuration": "./language-configuration.json"
-      }
-    ],
-    "grammars": [
-      {
-        "language": "procfile",
-        "scopeName": "source.procfile",
-        "path": "./syntaxes/procfile.tmLanguage.json"
-      }
-    ]
-  }
+	"name": "procfile",
+	"displayName": "Procfile",
+	"description": "Grammar for Procfiles",
+	"license": "BSD-3-Clause",
+	"version": "1.0.0",
+	"icon": "assets/icon.png",
+	"publisher": "benspaulding",
+	"author": {
+		"name": "Ben Spaulding",
+		"email": "ben@spaulding.im",
+		"url": "https://www.benspaulding.com"
+	},
+	"homepage": "https://github.com/benspaulding/vscode-procfile",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/benspaulding/vscode-procfile.git"
+	},
+	"bugs": {
+		"url": "https://github.com/benspaulding/vscode-procfile/issues"
+	},
+	"engines": {
+		"vscode": "^1.42.0"
+	},
+	"categories": [
+		"Programming Languages"
+	],
+	"keywords": [
+		"heroku",
+		"procfile"
+	],
+	"contributes": {
+		"languages": [
+			{
+				"id": "procfile",
+				"aliases": [
+					"Procfile",
+					"procfile"
+				],
+				"extensions": [
+					".procfile"
+				],
+				"filenames": [
+					"Procfile"
+				],
+				"configuration": "./language-configuration.json"
+			}
+		],
+		"grammars": [
+			{
+				"language": "procfile",
+				"scopeName": "source.procfile",
+				"path": "./syntaxes/procfile.tmLanguage.json"
+			}
+		]
+	},
+	"__metadata": {
+		"id": "da8ce8c1-1732-496c-b639-5f8cf57ddf38",
+		"publisherDisplayName": "Ben Spaulding",
+		"publisherId": "27f62f83-b01c-4b89-b543-4dbb2d4155e8"
+	},
+	"prettier": {
+		"printWidth": 88,
+		"useTabs": true
+	}
 }

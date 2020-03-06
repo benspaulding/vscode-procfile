@@ -1,63 +1,63 @@
 {
-  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
-  "name": "Procfile",
-  "scopeName": "source.procfile",
-  "fileTypes": ["Procfile", ".procfile"],
-  "embeddedLanguages": {
-    "meta.embedded.line.shell": "shell"
-  },
-  "patterns": [
-    {
-      "include": "#process"
-    },
-    {
-      "include": "#comment"
-    }
-  ],
-  "repository": {
-    "process": {
-      "comment": "A named process to run",
-      "contentName": "meta.function.procfile",
-      "begin": "^(?=[\\w-]+:)",
-      "end": "$",
-      "patterns": [
-        {
-          "contentName": "support.function.procfile",
-          "begin": "^(?=[\\w-]+:)",
-          "end": "(?<=:)",
-          "patterns": [
-            {
-              "comment": "Process names with special meaning on Heroku",
-              "name": "keyword.heroku.procfile",
-              "match": "^(web|release)(?=:)"
-            },
-            {
-              "comment": "A process name",
-              "name": "entity.name.function.procfile",
-              "match": "^[\\w-]+(?=:)"
-            },
-            {
-              "name": "punctuation.separator.colon.procfile",
-              "match": "(?<=[\\w-]):"
-            }
-          ]
-        },
-        {
-          "name": "meta.embedded.line.shell",
-          "begin": "(?<=[\\w-]:)",
-          "end": "$",
-          "patterns": [
-            {
-              "include": "source.shell"
-            }
-          ]
-        }
-      ]
-    },
-    "comment": {
-      "comment": "A comment is anything that is not a process",
-      "name": "comment.line.procfile",
-      "match": "^(?![\\w-]+:).*$"
-    }
-  }
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Procfile",
+	"scopeName": "source.procfile",
+	"fileTypes": ["Procfile", ".procfile"],
+	"embeddedLanguages": {
+		"meta.embedded.line.shell": "shell"
+	},
+	"patterns": [
+		{
+			"include": "#process"
+		},
+		{
+			"include": "#comment"
+		}
+	],
+	"repository": {
+		"process": {
+			"comment": "A named process to run",
+			"contentName": "meta.function.procfile",
+			"begin": "^(?=[\\w-]+:)",
+			"end": "$",
+			"patterns": [
+				{
+					"contentName": "support.function.procfile",
+					"begin": "^(?=[\\w-]+:)",
+					"end": "(?<=:)",
+					"patterns": [
+						{
+							"comment": "Process names with special meaning on Heroku",
+							"name": "keyword.heroku.procfile",
+							"match": "^(web|release)(?=:)"
+						},
+						{
+							"comment": "A process name",
+							"name": "entity.name.function.procfile",
+							"match": "^[\\w-]+(?=:)"
+						},
+						{
+							"name": "punctuation.separator.colon.procfile",
+							"match": "(?<=[\\w-]):"
+						}
+					]
+				},
+				{
+					"name": "meta.embedded.line.shell",
+					"begin": "(?<=[\\w-]:)",
+					"end": "$",
+					"patterns": [
+						{
+							"include": "source.shell"
+						}
+					]
+				}
+			]
+		},
+		"comment": {
+			"comment": "A comment is anything that is not a process",
+			"name": "comment.line.procfile",
+			"match": "^(?![\\w-]+:).*$"
+		}
+	}
 }
