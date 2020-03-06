@@ -1,4 +1,3 @@
 !.vscode/
-*.pxm
 *.vsix
 node_modules

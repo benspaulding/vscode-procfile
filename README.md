@@ -3,7 +3,7 @@
 A [Visual Studio Code][VSCode] [extension][VSCext] with support for
 [`Procfile`s][Heroku].
 
-![syntax hilighting](support/side-by-side.png)
+![syntax hilighting](assets/side-by-side.png)
 
 The `Procfile` is mostly know for its use by [Heroku][] and [Foreman][]. However it
 supported by a number of other services and utilities, and is extremely handy for
@@ -54,6 +54,11 @@ parsing of `Procfile`s. Testing may be done in the future to be sure it hilights
 syntax that works for various process runners.
 
 ## Release Notes
+
+### 0.1.1
+
+Add an icon for the extension.
+
 
 ### 0.1.0
 

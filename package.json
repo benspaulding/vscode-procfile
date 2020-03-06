@@ -3,7 +3,8 @@
   "displayName": "Procfile",
   "description": "Grammar for Procfiles",
   "license": "BSD-3-Clause",
-  "version": "0.1.0",
+  "version": "0.1.1",
+  "icon": "assets/icon.png",
   "publisher": "benspaulding",
   "author": {
     "name": "Ben Spaulding",
