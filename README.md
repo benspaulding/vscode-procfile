@@ -1,7 +1,7 @@
 # `Procfile` extension for Visual Studio Code
 
-A [Visual Studio Code][VSCode] [extension][VSCext] with support for
-[`Procfile`s][Heroku].
+A [Visual Studio Code][vscode] [extension][vscext] with support for
+[`Procfile`s][heroku].
 
 ![syntax hilighting](assets/side-by-side.png)
 
@@ -30,7 +30,40 @@ djsync: browser-sync start --proxy="$WEB_HOST" --port="$BROWSERSYNC_PORT"
 
 You can run `honcho start` and have it all up and running!
 
-## Foreman & Clones
+## Features
+
+This extension is _packed_ with features, especially for one that you will hardly
+ever have to use! However, I believe both you and the humble `Procfile` deserve only
+the best. :)
+
+### Syntax Highlighting
+
+As seen above, the files are highlighted not only to show what a valid process
+definition is, but it also highlights the command to run using the shell highlighter.
+
+### Service-Specific Information
+
+Some services, such as Heroku, give special meaning to certain process names.
+Hovering over those will now give a description and a link to documentation.
+
+### Formatting
+
+Having whitespace between the process name and the command is optional. This
+extension exposes the `insertSpace` (default: `true`) to the formatters. All three
+types of formatting are provided: on-type, selection, and complete document.
+
+### Diagnostics
+
+A `Procfile` must have unique process names. The extension provides feedback when a
+name has been duplicated.
+
+### Symbol Navigation
+
+You have probably never seen a long `Procfile`, but just in case you do, this
+extension has you covered! You can navigate through the processes with the
+breadcrumbs or the command palette.
+
+## `Procfile` runners: Foreman & Clones
 
 The most used and robust are:
 
@@ -40,45 +73,81 @@ The most used and robust are:
 
 Others include:
 
-- [node-foreman][Noreman] (Node) *— n.b. How on earth is this not named “Noreman”?
-  I insist on referring to it as such!*
+- [node-foreman][noreman] (Node) _— n.b. How on earth is this not named “Noreman”?
+  I insist on referring to it as such!_
 - [Shoreman][] (Shell)
 - [forego][] (Go)
 
-[VSCode]: https://code.visualstudio.com/
-[VSCext]: https://marketplace.visualstudio.com/VSCode
-[Heroku]: https://devcenter.heroku.com/articles/procfile
-[Foreman]: http://ddollar.github.io/foreman/
-[Honcho]: https://github.com/nickstenning/honcho
-[Goreman]: https://github.com/mattn/goreman
-[Noreman]: https://github.com/strongloop/node-foreman
-[Shoreman]: https://github.com/chrismytton/shoreman
+[vscode]: https://code.visualstudio.com/
+[vscext]: https://marketplace.visualstudio.com/VSCode
+[heroku]: https://devcenter.heroku.com/articles/procfile
+[foreman]: http://ddollar.github.io/foreman/
+[honcho]: https://github.com/nickstenning/honcho
+[goreman]: https://github.com/mattn/goreman
+[noreman]: https://github.com/strongloop/node-foreman
+[shoreman]: https://github.com/chrismytton/shoreman
 [forego]: https://github.com/ddollar/forego
 
 There is no published standard for `Procfile` syntax, but Foreman can be used as the
 reference implementation. Though the various runners recognize different things as
 comments, process, or errors, Foreman’s syntax is recognized by this extension.
 
-| *`Procfile`* |  Foreman  |  Honcho   |  Goreman  |  Noreman  |  Shoreman  |  forego  |
-| ------------ |:---------:|:---------:|:---------:|:---------:|:----------:|:--------:|
-| `n0: …     ` |  ✓        |  ✓        |  ✓        |  ✓        |  ✓         |  ✓       |
-| `n1:…      ` |  ✓        |  ✓        |  ✓        |  ✓        |         ✗  |  ✓       |
-| `n-4: …    ` |  ✓        |     #     |  ✓        |  ✓        |  ✓         |  ✓       |
-| `# n3: …   ` |     #     |     #     |     #     |     #     |     #      |       ✗  |
-| `#n4: …    ` |     #     |     #     |     #     |     #     |     #      |       ✗  |
-| `n5 :…     ` |     #     |     #     |  ✓        |        ✗  |  ✓         |       ✗  |
-| ` n6: …    ` |     #     |     #     |  ✓        |        ✗  |  ✓         |       ✗  |
-| `n 7: …    ` |     #     |     #     |  ✓        |        ✗  |  ✓   /  ✗  |       ✗  |
-| `n8 : …    ` |     #     |     #     |  ✓        |        ✗  |  ✓         |       ✗  |
-| `n9 …      ` |     #     |     #     |     #     |        ✗  |         ✗  |       ✗  |
+| _`Procfile`_ | Foreman |   Honcho    | Goreman | Noreman | Shoreman | forego |
+| ------------ | :-----: | :---------: | :-----: | :-----: | :------: | :----: |
+| `n0: …`      |    ✓    |      ✓      |    ✓    |    ✓    |    ✓     |   ✓    |
+| `n1:…`       |    ✓    |      ✓      |    ✓    |    ✓    |    ✗     |   ✓    |
+| `n-4: …`     |    ✓    | # [\*](#f1) |    ✓    |    ✓    |    ✓     |   ✓    |
+| `# n3: …`    |    #    |      #      |    #    |    #    |    #     |   ✗    |
+| `#n4: …`     |    #    |      #      |    #    |    #    |    #     |   ✗    |
+| `n5 :…`      |    #    |      #      |    ✓    |    ✗    |    ✓     |   ✗    |
+| `n6: …`      |    #    |      #      |    ✓    |    ✗    |    ✓     |   ✗    |
+| `n 7: …`     |    #    |      #      |    ✓    |    ✗    |  ✓ / ✗   |   ✗    |
+| `n8 : …`     |    #    |      #      |    ✓    |    ✗    |    ✓     |   ✗    |
+| `n9 …`       |    #    |      #      |    #    |    ✗    |    ✗     |   ✗    |
 
-|     *legend*      |     |
-| ----------------- |:---:|
+| _legend_          |     |
+| ----------------- | :-: |
 | valid process     |  ✓  |
-| comment / ignored |  #  |
+| ignored / comment |  #  |
 | error / hang      |  ✗  |
 
+<a name="f1">\*</a> _Support for dashes is coming to Honcho ([PR #218](https://github.com/nickstenning/honcho/pull/218))._
+
+## Todo
+
+_Note: I am not really looking for help on this one — it is more of a personal
+learning project. But I wanted to share it because seemed there were few
+smaller extensions that explored a lot of the VS Code extension API._
+
+- Write tests:
+  - core
+  - diagnostics
+  - formatters
+  - hovers
+  - symbols
+- Clean up core modules (reconsider the Line/Text setup)
+- Consider releasing core module as own procfile package
+- Add automatic tasks ([t1], [t2]) for running Procfiles.
+
+[t1]: https://code.visualstudio.com/api/references/vscode-api#TaskProvider
+[t2]: https://code.visualstudio.com/api/extension-guides/task-provider
+
 ## Release Notes
+
+### 1.1.0
+
+This is a big release for such a tiny file type, but my motivation was to use
+TypeScript on a real project and to learn about the VS Code extension API. Enjoy!
+
+- _Hovers_ — Some services, such as Heroku, give special meaning to certain process names. Hovering over those now gives a brief explanation and a link to documentation.
+- _Formatting_ — A configurable setting allows the user to choose if there is
+  whitespace between the process name and the command. This setting is used for
+  formatting while typing, formatting a selected range, and formatting the entire
+  document.
+- _Diagnostcs_ — Error indicators show if a Procfile has two processes with the same
+  name.
+- _Symbol navigation_ — all processes are identified and can be navigated with
+  breadcrumbs or the command pallete.
 
 ### 1.0.0
 
@@ -88,7 +157,6 @@ Foreman and its clones to determine the most common subset of functionality.
 ### 0.1.1
 
 Add an icon for the extension.
-
 
 ### 0.1.0
 

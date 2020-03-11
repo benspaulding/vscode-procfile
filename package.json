@@ -3,7 +3,7 @@
 	"displayName": "Procfile",
 	"description": "Grammar for Procfiles",
 	"license": "BSD-3-Clause",
-	"version": "1.0.0",
+	"version": "1.1.0",
 	"icon": "assets/icon.png",
 	"publisher": "benspaulding",
 	"author": {
@@ -20,7 +20,7 @@
 		"url": "https://github.com/benspaulding/vscode-procfile/issues"
 	},
 	"engines": {
-		"vscode": "^1.42.0"
+		"vscode": "^1.43.0"
 	},
 	"categories": [
 		"Programming Languages"
@@ -29,13 +29,20 @@
 		"heroku",
 		"procfile"
 	],
+	"galleryBanner": {
+		"color": "white",
+		"theme": "light"
+	},
+	"main": "./out/extension.js",
+	"activationEvents": [
+		"onLanguage:procfile"
+	],
 	"contributes": {
 		"languages": [
 			{
 				"id": "procfile",
 				"aliases": [
-					"Procfile",
-					"procfile"
+					"Procfile"
 				],
 				"extensions": [
 					".procfile"
@@ -52,15 +59,46 @@
 				"scopeName": "source.procfile",
 				"path": "./syntaxes/procfile.tmLanguage.json"
 			}
-		]
+		],
+		"configuration": {
+			"title": "Procfile",
+			"properties": {
+				"procfile.insertSpace": {
+					"type": "boolean",
+					"default": true,
+					"markdownDescription": "Separate process type and command with a space when formatting.\\\nE.g., `name: command` as opposed to `name:command`."
+				}
+			}
+		}
 	},
 	"__metadata": {
 		"id": "da8ce8c1-1732-496c-b639-5f8cf57ddf38",
 		"publisherDisplayName": "Ben Spaulding",
 		"publisherId": "27f62f83-b01c-4b89-b543-4dbb2d4155e8"
 	},
-	"prettier": {
-		"printWidth": 88,
-		"useTabs": true
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"lint": "eslint . --ext={j,t}s --fix && npm run format",
+		"format": "prettier '**/*.{j,t}s' '**/*.json' --write",
+		"watch": "tsc -p ./ -w",
+		"pretest": "npm run compile && npm run lint",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/glob": "^7.1.1",
+		"@types/mocha": "^7.0.1",
+		"@types/node": "^12.11.7",
+		"@types/vscode": "^1.43.0",
+		"@typescript-eslint/eslint-plugin": "^2.18.0",
+		"@typescript-eslint/parser": "^2.18.0",
+		"eslint": "^6.8.0",
+		"eslint-config-prettier": "^6.10.0",
+		"eslint-plugin-prettier": "^3.1.2",
+		"glob": "^7.1.6",
+		"mocha": "^7.0.1",
+		"prettier": "1.19.1",
+		"typescript": "^3.7.5",
+		"vscode-test": "^1.3.0"
 	}
 }

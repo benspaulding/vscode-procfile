@@ -1,4 +1,13 @@
-.gitignore
+**/*.map
+**/*.ts
+**/tsconfig.json
+.*config
+.*ignore
+.*rc.js
+.pre-commit-config.yaml
+.vscode-test/**
 .vscode/**
 assets/src/**
+out/test/**
+src/**
 vsc-extension-quickstart.md

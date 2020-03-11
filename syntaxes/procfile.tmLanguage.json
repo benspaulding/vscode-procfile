@@ -11,7 +11,7 @@
 			"include": "#process"
 		},
 		{
-			"include": "#comment"
+			"include": "#ignored"
 		}
 	],
 	"repository": {
@@ -54,8 +54,8 @@
 				}
 			]
 		},
-		"comment": {
-			"comment": "A comment is anything that is not a process",
+		"ignored": {
+			"comment": "Anything that is not a process is ignored",
 			"name": "comment.line.procfile",
 			"match": "^(?![\\w-]+:).*$"
 		}

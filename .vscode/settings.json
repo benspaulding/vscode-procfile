@@ -1,0 +1,28 @@
+{
+	"[javascript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode",
+	},
+	"[procfile]": {
+		"editor.formatOnType": true
+	},
+	"[typescript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode",
+	},
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": true,
+	},
+	"editor.formatOnSave": true,
+	"eslint.lintTask.enable": true,
+	"eslint.validate": [
+		"javascript",
+		"typescript",
+	],
+	"files.exclude": {
+		"out": false
+	},
+	"search.exclude": {
+		"out": true
+	},
+	// Turn off tsc task auto detection since we have the necessary tasks as npm scripts
+	"typescript.tsc.autoDetect": "off",
+}

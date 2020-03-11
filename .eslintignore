@@ -1,5 +1,5 @@
-!.vscode
-*.vsix
+!.*rc.js
+.vscode
 .vscode-test
 node_modules
 out
