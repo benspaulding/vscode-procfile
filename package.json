@@ -66,6 +66,7 @@
 				"procfile.insertSpace": {
 					"type": "boolean",
 					"default": true,
+					"description": "Separate the process type and its command with a space when formatting.",
 					"markdownDescription": "Separate process type and command with a space when formatting.\\\nE.g., `name: command` as opposed to `name:command`."
 				}
 			}

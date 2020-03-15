@@ -30,6 +30,8 @@ djsync: browser-sync start --proxy="$WEB_HOST" --port="$BROWSERSYNC_PORT"
 
 You can run `honcho start` and have it all up and running!
 
+---
+
 ## Features
 
 This extension is _packed_ with features, especially for one that you will hardly
@@ -62,6 +64,32 @@ name has been duplicated.
 You have probably never seen a long `Procfile`, but just in case you do, this
 extension has you covered! You can navigate through the processes with the
 breadcrumbs or the command palette.
+
+---
+
+## Todo
+
+There are still a few things I plan to do.
+
+### Cleanup
+
+- Write tests:
+  - core
+  - diagnostics
+  - formatters
+  - hovers
+  - symbols
+- Clean up core modules (reconsider the Line/Text setup)
+- Consider releasing core module as own procfile package
+
+### Features
+
+- Add automatic tasks ([t1], [t2]) for running Procfiles.
+
+[t1]: https://code.visualstudio.com/api/references/vscode-api#TaskProvider
+[t2]: https://code.visualstudio.com/api/extension-guides/task-provider
+
+---
 
 ## `Procfile` runners: Foreman & Clones
 
@@ -113,24 +141,7 @@ comments, process, or errors, Foreman’s syntax is recognized by this extension
 
 <a name="f1">\*</a> _Support for dashes is coming to Honcho ([PR #218](https://github.com/nickstenning/honcho/pull/218))._
 
-## Todo
-
-_Note: I am not really looking for help on this one — it is more of a personal
-learning project. But I wanted to share it because seemed there were few
-smaller extensions that explored a lot of the VS Code extension API._
-
-- Write tests:
-  - core
-  - diagnostics
-  - formatters
-  - hovers
-  - symbols
-- Clean up core modules (reconsider the Line/Text setup)
-- Consider releasing core module as own procfile package
-- Add automatic tasks ([t1], [t2]) for running Procfiles.
-
-[t1]: https://code.visualstudio.com/api/references/vscode-api#TaskProvider
-[t2]: https://code.visualstudio.com/api/extension-guides/task-provider
+---
 
 ## Release Notes
 
