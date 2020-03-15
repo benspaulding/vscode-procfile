@@ -49,8 +49,8 @@ Hovering over those will now give a description and a link to documentation.
 ### Formatting
 
 Having whitespace between the process name and the command is optional. This
-extension exposes the `insertSpace` (default: `true`) to the formatters. All three
-types of formatting are provided: on-type, selection, and complete document.
+extension exposes an `insertSpace` (default: `true`) setting to its formatters. All
+three types of formatting are provided: on-type, selection, and complete document.
 
 ### Diagnostics
 
