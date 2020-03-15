@@ -145,6 +145,11 @@ comments, process, or errors, Foreman’s syntax is recognized by this extension
 
 ## Release Notes
 
+### 1.1.1
+
+Fix a few typos in documentation, add some more metadata to package.json, other
+nitpicky bits that change nothing.
+
 ### 1.1.0
 
 This is a big release for such a tiny file type, but my motivation was to use
