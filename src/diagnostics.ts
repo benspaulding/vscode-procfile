@@ -51,8 +51,8 @@ async function getDiagnostics(document: vsc.TextDocument): Promise<vsc.Diagnosti
 			"Process names must be unique within a file.",
 		);
 		diagnostic.source = "procfile";
-		diagnostic.relatedInformation = twins.slice(undefined, LIMIT).map(other => {
-			const range = getNameRange(document, other.num);
+		diagnostic.relatedInformation = twins.slice(undefined, LIMIT).map(twin => {
+			const range = getNameRange(document, twin.num);
 			return new vsc.DiagnosticRelatedInformation(
 				new vsc.Location(document.uri, range),
 				`Duplicate process name "${document.getText(range)}"`,
