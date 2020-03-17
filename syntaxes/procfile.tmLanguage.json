@@ -2,6 +2,7 @@
 	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
 	"name": "Procfile",
 	"scopeName": "source.procfile",
+	"uuid": "1D076C29-FDFB-4CCA-B215-B6459BCDEC45",
 	"fileTypes": ["Procfile", ".procfile"],
 	"embeddedLanguages": {
 		"meta.embedded.line.shell": "shell"
