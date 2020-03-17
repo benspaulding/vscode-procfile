@@ -30,8 +30,6 @@ djsync: browser-sync start --proxy="$WEB_HOST" --port="$BROWSERSYNC_PORT"
 
 You can run `honcho start` and have it all up and running!
 
----
-
 ## Features
 
 This extension is _packed_ with features, especially for one that you will hardly
@@ -65,7 +63,9 @@ You have probably never seen a long `Procfile`, but just in case you do, this
 extension has you covered! You can navigate through the processes with the
 breadcrumbs or the command palette.
 
----
+## Release Notes
+
+See [CHANGELOG](./CHANGELOG.md).
 
 ## Todo
 
@@ -88,8 +88,6 @@ There are still a few things I plan to do.
 
 [t1]: https://code.visualstudio.com/api/references/vscode-api#TaskProvider
 [t2]: https://code.visualstudio.com/api/extension-guides/task-provider
-
----
 
 ## `Procfile` runners: Foreman & Clones
 
@@ -140,40 +138,3 @@ comments, process, or errors, Foreman’s syntax is recognized by this extension
 | error / hang      |  ✗  |
 
 <a name="f1">\*</a> _Support for dashes is coming to Honcho ([PR #218](https://github.com/nickstenning/honcho/pull/218))._
-
----
-
-## Release Notes
-
-### 1.1.1
-
-Fix a few typos in documentation, add some more metadata to package.json, other
-nitpicky bits that change nothing.
-
-### 1.1.0
-
-This is a big release for such a tiny file type, but my motivation was to use
-TypeScript on a real project and to learn about the VS Code extension API. Enjoy!
-
-- _Hovers_ — Some services, such as Heroku, give special meaning to certain process names. Hovering over those now gives a brief explanation and a link to documentation.
-- _Formatting_ — A configurable setting allows the user to choose if there is
-  whitespace between the process name and the command. This setting is used for
-  formatting while typing, formatting a selected range, and formatting the entire
-  document.
-- _Diagnostcs_ — Error indicators show if a Procfile has two processes with the same
-  name.
-- _Symbol navigation_ — all processes are identified and can be navigated with
-  breadcrumbs or the command pallete.
-
-### 1.0.0
-
-Recognize process names containing a `-` (dash) as valid. This is based on testing
-Foreman and its clones to determine the most common subset of functionality.
-
-### 0.1.1
-
-Add an icon for the extension.
-
-### 0.1.0
-
-Initial release of `vscode-procfile` extension.
