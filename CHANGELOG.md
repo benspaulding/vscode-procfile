@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.2
+
+Adjust a few more bits of metadata.
+
 ## 1.1.1
 
 Fix a few typos in documentation, add some more metadata to package.json, other
