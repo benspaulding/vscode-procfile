@@ -137,4 +137,4 @@ comments, process, or errors, Foreman’s syntax is recognized by this extension
 | ignored / comment |  #  |
 | error / hang      |  ✗  |
 
-<a name="f1">\*</a> _Support for dashes is coming to Honcho ([PR #218](https://github.com/nickstenning/honcho/pull/218))._
+<a name="f1">\*</a> _Support for dashes is coming to Honcho (<a href="https://github.com/nickstenning/honcho/pull/218">PR #218</a>)._
