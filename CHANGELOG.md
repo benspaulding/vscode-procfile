@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.3
+
+Fix some parts of the README that were mangled by formatters.
+
 ## 1.1.2
 
 Adjust a few more bits of metadata.
