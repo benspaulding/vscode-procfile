@@ -19,20 +19,20 @@ export const diagnosticCollection = vsc.languages.createDiagnosticCollection(
 	"procfile",
 );
 
-export async function procfileOpenHandler(document: vsc.TextDocument): Promise<void> {
-	diagnosticCollection.delete(document.uri);
-	diagnosticCollection.set(document.uri, await getDiagnostics(document));
-}
-
-export async function procfileChangeHandler(
-	event: vsc.TextDocumentChangeEvent,
+export async function procfileOpenChangeHandler(
+	documentish: vsc.TextDocument | vsc.TextDocumentChangeEvent,
 ): Promise<void> {
-	diagnosticCollection.delete(event.document.uri);
-	diagnosticCollection.set(event.document.uri, await getDiagnostics(event.document));
+	const document = (documentish as vsc.TextDocumentChangeEvent).document || documentish;
+	if (document.languageId === "procfile") {
+		diagnosticCollection.delete(document.uri);
+		diagnosticCollection.set(document.uri, await getDiagnostics(document));
+	}
 }
 
 export async function procfileCloseHandler(document: vsc.TextDocument): Promise<void> {
-	diagnosticCollection.delete(document.uri);
+	if (document.languageId === "procfile") {
+		diagnosticCollection.delete(document.uri);
+	}
 }
 
 /**

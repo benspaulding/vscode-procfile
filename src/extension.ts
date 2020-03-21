@@ -7,9 +7,8 @@ import * as vsc from "vscode";
 import * as re from "./core/re";
 import {
 	diagnosticCollection,
-	procfileChangeHandler,
 	procfileCloseHandler,
-	procfileOpenHandler,
+	procfileOpenChangeHandler,
 } from "./diagnostics";
 import {
 	ProcfileDocumentFormat,
@@ -44,8 +43,8 @@ export function activate(context: vsc.ExtensionContext): void {
 			re.comment.source,
 		),
 		diagnosticCollection,
-		vsc.workspace.onDidOpenTextDocument(procfileOpenHandler),
-		vsc.workspace.onDidChangeTextDocument(procfileChangeHandler),
+		vsc.workspace.onDidOpenTextDocument(procfileOpenChangeHandler),
+		vsc.workspace.onDidChangeTextDocument(procfileOpenChangeHandler),
 		vsc.workspace.onDidCloseTextDocument(procfileCloseHandler),
 	);
 }
