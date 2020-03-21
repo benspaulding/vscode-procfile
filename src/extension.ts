@@ -4,6 +4,7 @@
  */
 
 import * as vsc from "vscode";
+import * as re from "./core/re";
 import {
 	diagnosticCollection,
 	procfileChangeHandler,
@@ -16,7 +17,6 @@ import {
 	ProcfileOnTypeFormat,
 } from "./formatters";
 import { ProcfileHover } from "./hovers";
-import * as re from "./core/re";
 import { ProcfileDocumentSymbol } from "./symbols";
 
 /** Any Procfile (syntax highlighting and validation). */
