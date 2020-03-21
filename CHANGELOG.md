@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.4
+
+Fix a bug where the extension was linting file types other than `Procfile`.
+
 ## 1.1.3
 
 Fix some parts of the README that were mangled by formatters.
