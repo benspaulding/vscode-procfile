@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.1.6
+
+Packaging fix.
+
+## 1.1.5
+
+Update dependencies.
+
 ## 1.1.4
 
 Fix a bug where the extension was linting file types other than `Procfile`.
@@ -30,7 +38,7 @@ TypeScript on a real project and to learn about the VS Code extension API. Enjoy
 - _Diagnostcs_ — Error indicators show if a Procfile has two processes with the same
   name.
 - _Symbol navigation_ — all processes are identified and can be navigated with
-  breadcrumbs or the command pallete.
+  breadcrumbs or the command palette.
 
 ## 1.0.0
 
