@@ -3,7 +3,7 @@
 	"displayName": "Procfile",
 	"description": "Grammar & features for Procfiles",
 	"license": "BSD-3-Clause",
-	"version": "1.1.6",
+	"version": "1.1.7",
 	"icon": "assets/icon.png",
 	"publisher": "benspaulding",
 	"author": {
