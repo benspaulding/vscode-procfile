@@ -71,7 +71,7 @@ export class Procfile {
 		// Save this property because we are going to iterate over it twice.
 		const lines = this.processDefLines;
 
-		// Turn the array of lines into an array containg a tuple with ...
+		// Turn the array of lines into an array containing a tuple with ...
 		const paired = lines.map((a): [Line, Line[]] => [
 			a, // ... the given line ...
 			lines // ... and an array of other lines with the same name.
@@ -125,7 +125,7 @@ export class ProcessDef implements Text {
 
 	/**
 	 * Create a ProcessDef.
-	 * @param text - Exact text used to create the ProcesDef.
+	 * @param text - Exact text used to create the ProcessDef.
 	 * @param name - Name portion of the process definition.
 	 * @param sep  - Sep(arator) in the process definition.
 	 * @param blank - Separating whitespace (blank) in the process definition.
