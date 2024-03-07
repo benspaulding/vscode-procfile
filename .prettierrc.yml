@@ -1,0 +1,17 @@
+---
+# NOTE: Prettier reads .editorconfig with no option required. For more info see:
+# https://github.com/prettier/prettier/issues/15255
+# editorconfig: true
+printWidth: 88
+proseWrap: always
+singleQuote: true
+trailingComma: all
+useTabs: true
+overrides:
+  - files:
+      - "*.{md,mdown,markdown}"
+      - "*.{yml,yaml}"
+      - "package*.json"
+    options:
+      singleQuote: false
+      useTabs: false

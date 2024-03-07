@@ -1,0 +1,38 @@
+---
+root: true
+
+parser: "@typescript-eslint/parser"
+parserOptions:
+  ecmaFeatures:
+    impliedStrict: true
+  ecmaVersion: 2022
+  lib:
+    - ES2022
+  sourceType: module
+
+env:
+  es2022: true
+  mocha: true
+  node: true
+
+plugins:
+  - "@typescript-eslint"
+  - prettier
+
+extends:
+  - eslint:recommended
+  - plugin:@typescript-eslint/recommended
+  - plugin:prettier/recommended
+
+rules:
+  "@typescript-eslint/naming-convention": warn
+  "@typescript-eslint/no-use-before-define": off
+  "@typescript-eslint/semi": warn
+  curly: warn
+  eqeqeq: warn
+  no-throw-literal: warn
+  semi: off
+
+overrides:
+  - files: ["src/test/suite/**/*"]
+    rules: {}

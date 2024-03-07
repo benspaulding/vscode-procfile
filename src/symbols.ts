@@ -3,15 +3,15 @@
  * @module symbols
  */
 
-import * as vsc from "vscode";
-import * as core from "./core";
+import * as vsc from 'vscode';
+import * as core from './core';
 
 export class ProcfileDocumentSymbol implements vsc.DocumentSymbolProvider {
 	async provideDocumentSymbols(
 		document: vsc.TextDocument,
 	): Promise<vsc.DocumentSymbol[]> {
 		const procfileDoc = core.Procfile.fromString(document.getText());
-		return procfileDoc.processDefLines.map(line => {
+		return procfileDoc.processDefLines.map((line) => {
 			const pDef = line.val as core.ProcessDef;
 			const fullRange = document.lineAt(line.num).range;
 			const nameRange = fullRange.with({
@@ -19,7 +19,7 @@ export class ProcfileDocumentSymbol implements vsc.DocumentSymbolProvider {
 			});
 			return new vsc.DocumentSymbol(
 				pDef.name,
-				pDef.cmd || "",
+				pDef.cmd || '',
 				vsc.SymbolKind.Function,
 				fullRange,
 				nameRange,

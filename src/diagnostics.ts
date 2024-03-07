@@ -3,9 +3,9 @@
  * @module diagnostics
  */
 
-import * as vsc from "vscode";
-import * as core from "./core";
-import * as re from "./core/re";
+import * as vsc from 'vscode';
+import * as core from './core';
+import * as re from './core/re';
 
 /**
  * Limit of number of diagnostic results to return.
@@ -15,22 +15,21 @@ import * as re from "./core/re";
  */
 const LIMIT = 100;
 
-export const diagnosticCollection = vsc.languages.createDiagnosticCollection(
-	"procfile",
-);
+export const diagnosticCollection =
+	vsc.languages.createDiagnosticCollection('procfile');
 
 export async function procfileOpenChangeHandler(
 	documentish: vsc.TextDocument | vsc.TextDocumentChangeEvent,
 ): Promise<void> {
 	const document = (documentish as vsc.TextDocumentChangeEvent).document || documentish;
-	if (document.languageId === "procfile") {
+	if (document.languageId === 'procfile') {
 		diagnosticCollection.delete(document.uri);
 		diagnosticCollection.set(document.uri, await getDiagnostics(document));
 	}
 }
 
 export async function procfileCloseHandler(document: vsc.TextDocument): Promise<void> {
-	if (document.languageId === "procfile") {
+	if (document.languageId === 'procfile') {
 		diagnosticCollection.delete(document.uri);
 	}
 }
@@ -48,10 +47,10 @@ async function getDiagnostics(document: vsc.TextDocument): Promise<vsc.Diagnosti
 	return conflicts.map(([line, twins]) => {
 		const diagnostic = new vsc.Diagnostic(
 			getNameRange(document, line.num),
-			"Process names must be unique within a file.",
+			'Process names must be unique within a file.',
 		);
-		diagnostic.source = "procfile";
-		diagnostic.relatedInformation = twins.slice(undefined, LIMIT).map(twin => {
+		diagnostic.source = 'procfile';
+		diagnostic.relatedInformation = twins.slice(undefined, LIMIT).map((twin) => {
 			const range = getNameRange(document, twin.num);
 			return new vsc.DiagnosticRelatedInformation(
 				new vsc.Location(document.uri, range),

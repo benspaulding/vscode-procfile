@@ -1,15 +1,18 @@
 {
+	"$schema": "https://json.schemastore.org/tsconfig",
+	"display": "VS Code Procfile",
+	"extends": "@tsconfig/node20/tsconfig.json",
 	"compilerOptions": {
-		"module": "commonjs",
-		"target": "es6",
-		"outDir": "out",
-		"lib": ["es6"],
-		"sourceMap": true,
 		"rootDir": "src",
-		"strict": true,
-		"noImplicitReturns": true,
+		"outDir": "dist",
 		"noFallthroughCasesInSwitch": true,
-		"noUnusedParameters": true
+		"noImplicitOverride": true,
+		"noImplicitReturns": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"declaration": true,
+		"declarationMap": true,
+		"sourceMap": true
 	},
-	"exclude": ["node_modules", ".vscode-test"]
+	"include": ["src/**/*"]
 }

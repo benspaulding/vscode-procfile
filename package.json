@@ -1,107 +1,107 @@
 {
-	"name": "procfile",
-	"displayName": "Procfile",
-	"description": "Grammar & features for Procfiles",
-	"license": "BSD-3-Clause",
-	"version": "1.1.7",
-	"icon": "assets/icon.png",
-	"publisher": "benspaulding",
-	"author": {
-		"name": "Ben Spaulding",
-		"email": "ben@spaulding.im",
-		"url": "https://www.benspaulding.com"
-	},
-	"homepage": "https://github.com/benspaulding/vscode-procfile",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/benspaulding/vscode-procfile.git"
-	},
-	"bugs": {
-		"url": "https://github.com/benspaulding/vscode-procfile/issues"
-	},
-	"engines": {
-		"vscode": "^1.49.0"
-	},
-	"categories": [
-		"Formatters",
-		"Linters",
-		"Programming Languages"
-	],
-	"keywords": [
-		"heroku",
-		"procfile"
-	],
-	"galleryBanner": {
-		"color": "white",
-		"theme": "light"
-	},
-	"main": "./out/extension.js",
-	"activationEvents": [
-		"onLanguage:procfile"
-	],
-	"contributes": {
-		"languages": [
-			{
-				"id": "procfile",
-				"aliases": [
-					"Procfile"
-				],
-				"extensions": [
-					".procfile"
-				],
-				"filenames": [
-					"Procfile"
-				],
-				"configuration": "./language-configuration.json"
-			}
-		],
-		"grammars": [
-			{
-				"language": "procfile",
-				"scopeName": "source.procfile",
-				"path": "./syntaxes/procfile.tmLanguage.json"
-			}
-		],
-		"configuration": {
-			"title": "Procfile",
-			"properties": {
-				"procfile.insertSpace": {
-					"type": "boolean",
-					"default": true,
-					"description": "Separate the process type and its command with a space when formatting.",
-					"markdownDescription": "Separate process type and command with a space when formatting.\\\nE.g., `name: command` as opposed to `name:command`."
-				}
-			}
-		}
-	},
-	"__metadata": {
-		"id": "da8ce8c1-1732-496c-b639-5f8cf57ddf38",
-		"publisherDisplayName": "Ben Spaulding",
-		"publisherId": "27f62f83-b01c-4b89-b543-4dbb2d4155e8"
-	},
-	"scripts": {
-		"vscode:prepublish": "npm run compile",
-		"compile": "tsc -p ./",
-		"lint": "eslint . --ext={j,t}s --fix && npm run format",
-		"format": "prettier '**/*.{j,t}s' '**/*.json' --write",
-		"watch": "tsc -p ./ -w",
-		"pretest": "npm run compile && npm run lint",
-		"test": "node ./out/test/runTest.js"
-	},
-	"devDependencies": {
-		"@types/glob": "^7.1.3",
-		"@types/mocha": "^7.0.1",
-		"@types/node": "^12.12.62",
-		"@types/vscode": "^1.49.0",
-		"@typescript-eslint/eslint-plugin": "^4.25.0",
-		"@typescript-eslint/parser": "^4.25.0",
-		"eslint": "^7.27.0",
-		"eslint-config-prettier": "^8.3.0",
-		"eslint-plugin-prettier": "^3.1.4",
-		"glob": "^7.1.7",
-		"mocha": "^8.4.0",
-		"prettier": "^2.3.0",
-		"typescript": "^4.3.2",
-		"vscode-test": "^1.4.0"
-	}
+  "name": "vscode-procfile",
+  "displayName": "Procfile",
+  "description": "Grammar & features for Procfiles",
+  "license": "BSD-3-Clause",
+  "version": "1.1.8",
+  "icon": "assets/icon.png",
+  "publisher": "benspaulding",
+  "author": {
+    "name": "Ben Spaulding",
+    "email": "ben@spaulding.im",
+    "url": "https://www.benspaulding.com"
+  },
+  "homepage": "https://github.com/benspaulding/vscode-procfile",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/benspaulding/vscode-procfile.git"
+  },
+  "bugs": {
+    "url": "https://github.com/benspaulding/vscode-procfile/issues"
+  },
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Formatters",
+    "Linters",
+    "Programming Languages"
+  ],
+  "keywords": [
+    "heroku",
+    "procfile"
+  ],
+  "galleryBanner": {
+    "color": "white",
+    "theme": "light"
+  },
+  "main": "./dist/extension.js",
+  "contributes": {
+    "languages": [
+      {
+        "id": "procfile",
+        "aliases": [
+          "Procfile"
+        ],
+        "extensions": [
+          ".procfile"
+        ],
+        "filenames": [
+          "Procfile"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "procfile",
+        "scopeName": "source.procfile",
+        "path": "./syntaxes/procfile.tmLanguage.json"
+      }
+    ],
+    "configuration": {
+      "title": "Procfile",
+      "properties": {
+        "procfile.insertSpace": {
+          "type": "boolean",
+          "default": true,
+          "description": "Separate the process type and its command with a space when formatting.",
+          "markdownDescription": "Separate process type and command with a space when formatting.\\\nE.g., `name: command` as opposed to `name:command`."
+        }
+      }
+    }
+  },
+  "__metadata": {
+    "id": "da8ce8c1-1732-496c-b639-5f8cf57ddf38",
+    "publisherDisplayName": "Ben Spaulding",
+    "publisherId": "27f62f83-b01c-4b89-b543-4dbb2d4155e8"
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "lint": "eslint . --ext={j,t}s --fix && npm run format",
+    "format": "prettier '**/*.{j,t}s' '**/*.json' '**/*.md' '**/*.y*ml' --write",
+    "watch": "tsc -p ./ -w",
+    "pretest": "npm run compile && npm run lint",
+    "test": "node ./dist/test/runTest.js"
+  },
+  "devDependencies": {
+    "@tsconfig/node20": "*",
+    "@types/glob": "*",
+    "@types/mocha": "*",
+    "@types/node": "^20.0.0",
+    "@types/vscode": "*",
+    "@typescript-eslint/eslint-plugin": "*",
+    "@typescript-eslint/parser": "*",
+    "@vscode/test-electron": "*",
+    "@vscode/vsce": "*",
+    "eslint": "*",
+    "eslint-config-prettier": "*",
+    "eslint-plugin-prettier": "*",
+    "glob": "^8.1",
+    "mocha": "*",
+    "ovsx": "^0.8.3",
+    "prettier": "*",
+    "typescript": "*"
+  }
 }

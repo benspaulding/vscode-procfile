@@ -3,9 +3,9 @@
  * @module extension
  */
 
-import * as vsc from "vscode";
-import * as core from "./core";
-import * as re from "./core/re";
+import * as vsc from 'vscode';
+import * as core from './core';
+import * as re from './core/re';
 
 export class ProcfileDocumentFormat implements vsc.DocumentFormattingEditProvider {
 	async provideDocumentFormattingEdits(
@@ -16,7 +16,8 @@ export class ProcfileDocumentFormat implements vsc.DocumentFormattingEditProvide
 }
 
 export class ProcfileDocumentRangeFormat
-	implements vsc.DocumentRangeFormattingEditProvider {
+	implements vsc.DocumentRangeFormattingEditProvider
+{
 	async provideDocumentRangeFormattingEdits(
 		document: vsc.TextDocument,
 		range: vsc.Range,
@@ -34,9 +35,9 @@ export class ProcfileOnTypeFormat implements vsc.OnTypeFormattingEditProvider {
 		if (
 			ch === re.sep.source &&
 			document.getWordRangeAtPosition(position, re.INTRO) &&
-			vsc.workspace.getConfiguration("procfile").get("insertSpace")
+			vsc.workspace.getConfiguration('procfile').get('insertSpace')
 		) {
-			return [vsc.TextEdit.insert(position, " ")];
+			return [vsc.TextEdit.insert(position, ' ')];
 		}
 		return undefined;
 	}
@@ -64,7 +65,7 @@ async function formatDocumentLines(
 					line.range,
 					core.ProcessDef.fmtString(
 						line.text,
-						vsc.workspace.getConfiguration("procfile").get("insertSpace"),
+						vsc.workspace.getConfiguration('procfile').get('insertSpace'),
 					),
 				),
 			);

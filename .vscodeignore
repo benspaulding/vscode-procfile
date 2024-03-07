@@ -3,11 +3,11 @@
 **/tsconfig.json
 .*config
 .*ignore
-.*rc.js
+.*rc.yml
 .pre-commit-config.yaml
 .vscode-test/**
 .vscode/**
 assets/src/**
-out/test/**
+dist/test/**
 src/**
 vsc-extension-quickstart.md

@@ -3,23 +3,23 @@
  * @module extension
  */
 
-import * as vsc from "vscode";
-import * as re from "./core/re";
+import * as vsc from 'vscode';
+import * as re from './core/re';
 import {
 	diagnosticCollection,
 	procfileCloseHandler,
 	procfileOpenChangeHandler,
-} from "./diagnostics";
+} from './diagnostics';
 import {
 	ProcfileDocumentFormat,
 	ProcfileDocumentRangeFormat,
 	ProcfileOnTypeFormat,
-} from "./formatters";
-import { ProcfileHover } from "./hovers";
-import { ProcfileDocumentSymbol } from "./symbols";
+} from './formatters';
+import { ProcfileHover } from './hovers';
+import { ProcfileDocumentSymbol } from './symbols';
 
 /** Any Procfile (syntax highlighting and validation). */
-const PROCFILE_LANG = { language: "procfile" };
+const PROCFILE_LANG = { language: 'procfile' };
 
 export function activate(context: vsc.ExtensionContext): void {
 	context.subscriptions.push(

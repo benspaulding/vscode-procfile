@@ -1,6 +1,6 @@
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.0.1
+    rev: v4.5.0
     hooks:
       - id: check-added-large-files
       - id: check-byte-order-marker
@@ -15,20 +15,24 @@ repos:
       - id: mixed-line-ending
       - id: trailing-whitespace
 
-  - repo: https://github.com/pre-commit/mirrors-eslint
-    rev: v7.27.0
+  - repo: local
     hooks:
       - id: eslint
+        name: eslint
+        description: Hook for a version of eslint that the mirror repo skipped.
+        language: script
+        entry: node_modules/.bin/eslint --fix
+        args: []
         types: [file]
         files: \.[jt]s$
-        args: [--fix]
-        additional_dependencies:
-          - "@typescript-eslint/eslint-plugin@4.25.0"
-          - "@typescript-eslint/parser@4.25.0"
-          - eslint-config-prettier@8.3.0
-          - eslint-plugin-prettier@3.1.4
 
-  - repo: https://github.com/pre-commit/mirrors-prettier
-    rev: v2.3.0
+  - repo: local
     hooks:
       - id: prettier
+        name: prettier
+        description: Hook for a version of prettier that the mirror repo skipped.
+        language: script
+        entry: node_modules/.bin/prettier --write --ignore-unknown
+        args: []
+        types: [text]
+        require_serial: false

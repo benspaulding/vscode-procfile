@@ -29,7 +29,7 @@
  * ```
  */
 
-import * as re from "./re";
+import * as re from './re';
 
 /**
  * A Procfile, in the abstract (think of buffer instead of a file on disk.)
@@ -55,7 +55,7 @@ export class Procfile {
 
 	/** Return the Procfile as a string. */
 	toString(): string {
-		return this.lines.map(line => line.val.toString()).join("");
+		return this.lines.map((line) => line.val.toString()).join('');
 	}
 
 	/**
@@ -63,7 +63,7 @@ export class Procfile {
 	 * @todo Somehow annotate return value to be Lines whose val is a ProcessDef.
 	 */
 	get processDefLines(): Line[] {
-		return this.lines.filter(line => line.val instanceof ProcessDef);
+		return this.lines.filter((line) => line.val instanceof ProcessDef);
 	}
 
 	/** An array containing tuples of [def, [defWithSameName, ...]]. */
@@ -75,8 +75,8 @@ export class Procfile {
 		const paired = lines.map((a): [Line, Line[]] => [
 			a, // ... the given line ...
 			lines // ... and an array of other lines with the same name.
-				.filter(b => b !== a)
-				.filter(b => (b.val as ProcessDef).name === (a.val as ProcessDef).name),
+				.filter((b) => b !== a)
+				.filter((b) => (b.val as ProcessDef).name === (a.val as ProcessDef).name),
 		]);
 
 		// Filter down to only lines that actually have conflicts.
@@ -110,7 +110,7 @@ interface Text {
 export class Comment implements Text {
 	readonly text: string;
 
-	constructor(text = "") {
+	constructor(text = '') {
 		this.text = text;
 	}
 }
@@ -179,7 +179,7 @@ export class ProcessDef implements Text {
 		const match = text.match(re.PDEF);
 		if (match && match.groups) {
 			const { name, sep, cmd } = match.groups;
-			return `${name}${sep}${insertSpace ? " " : ""}${cmd}`;
+			return `${name}${sep}${insertSpace ? ' ' : ''}${cmd}`;
 		}
 		return text;
 	}

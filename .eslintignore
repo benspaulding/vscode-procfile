@@ -1,5 +1,8 @@
 !.*rc.js
+*[-.]lock.json
+.git
+.venv
 .vscode
 .vscode-test
+dist
 node_modules
-out

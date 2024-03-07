@@ -4,9 +4,9 @@
  * @module hovers
  */
 
-import * as vsc from "vscode";
-import * as re from "./core/re";
-import * as special from "./core/special";
+import * as vsc from 'vscode';
+import * as re from './core/re';
+import * as special from './core/special';
 
 /**
  * Format a message about particular process names for the user.
@@ -33,14 +33,14 @@ export class ProcfileHover implements vsc.HoverProvider {
 
 		// Is user hovering over a *special* process name?
 		const specialName = special.PROCESS_NAMES.find(
-			processName => processName.name === document.getText(wordRange),
+			(processName) => processName.name === document.getText(wordRange),
 		);
 		if (!specialName) {
 			return undefined;
 		}
 
 		// Show a message for the special name being hovered.
-		const msgs = specialName.msgs.map(msg => formatMsg(msg)).join("\n\n");
+		const msgs = specialName.msgs.map((msg) => formatMsg(msg)).join('\n\n');
 		const markdownMsgs = new vsc.MarkdownString(msgs, true);
 		return new vsc.Hover(markdownMsgs);
 	}

@@ -21,42 +21,38 @@ export interface Msg {
  */
 export const PROCESS_NAMES: ProcessMeta[] = [
 	{
-		name: "cmd",
+		name: 'cmd',
 		msgs: [
 			{
-				provider: "Deis",
-				docUrl: "https://pythonhosted.org/deis/using_deis/process-types/",
-				text:
-					"The `cmd` process type is special as only it and the `web` process types will receive HTTP traffic from Deis’s routers.",
+				provider: 'Deis',
+				docUrl: 'https://pythonhosted.org/deis/using_deis/process-types/',
+				text: 'The `cmd` process type is special as only it and the `web` process types will receive HTTP traffic from Deis’s routers.',
 			},
 		],
 	},
 	{
-		name: "release",
+		name: 'release',
 		msgs: [
 			{
-				provider: "Heroku",
+				provider: 'Heroku',
 				docUrl:
-					"https://devcenter.heroku.com/articles/procfile#the-release-process-type",
-				text:
-					"The `release` process type is used to specify the command to run during your app’s release phase.",
+					'https://devcenter.heroku.com/articles/procfile#the-release-process-type',
+				text: 'The `release` process type is used to specify the command to run during your app’s release phase.',
 			},
 		],
 	},
 	{
-		name: "web",
+		name: 'web',
 		msgs: [
 			{
-				provider: "Deis",
-				docUrl: "https://pythonhosted.org/deis/using_deis/process-types/",
-				text:
-					"The `web` process type is special as only it and the `cmd` process types will receive HTTP traffic from Deis’s routers.",
+				provider: 'Deis',
+				docUrl: 'https://pythonhosted.org/deis/using_deis/process-types/',
+				text: 'The `web` process type is special as only it and the `cmd` process types will receive HTTP traffic from Deis’s routers.',
 			},
 			{
-				provider: "Heroku",
-				docUrl: "https://devcenter.heroku.com/articles/procfile#the-web-process-type",
-				text:
-					"A Heroku app’s `web` process type is special: it’s the only process type that can receive external HTTP traffic from Heroku’s routers. If your app includes a web server, you should declare it as your app’s web process.",
+				provider: 'Heroku',
+				docUrl: 'https://devcenter.heroku.com/articles/procfile#the-web-process-type',
+				text: 'A Heroku app’s `web` process type is special: it’s the only process type that can receive external HTTP traffic from Heroku’s routers. If your app includes a web server, you should declare it as your app’s web process.',
 			},
 		],
 	},

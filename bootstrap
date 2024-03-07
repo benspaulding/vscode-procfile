@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+#################################
+# Project Development Bootstrap #
+#################################
+
+set -euo pipefail
+
+function main() {
+	# Devs need a working Homebrew installation.
+	if [ ! "$(command -v brew)" ]; then
+		printf -- "%s\n" \
+			"Automated setup requires an existing homebrew installation." \
+			"Visit https://brew.sh for installation instructions." >&2
+		return 1
+	fi
+
+	# Devs need to sort out their own Node.js installation.
+	if [ ! "$(command -v npm)" ]; then
+		printf -- "%s\n" "Is node installed? npm cannot be found." >&2
+		return 1
+	fi
+
+	# Devs need to sort out their own Python installation.
+	if [ ! "$(command -v python3)" ]; then
+		printf -- "%s\n" "Python 3 installation not found." >&2
+		return 1
+	fi
+
+	# Now everything needed is available.
+	brew bundle check || brew bundle install && just setup && just ls
+}
+
+main "$@"
+exit
