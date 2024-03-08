@@ -165,12 +165,14 @@ publish: publish-vscode publish-ovsx
 # publish extension to VS Code Marketplace
 [confirm]
 publish-vscode:
-	npx "@vscode/vsce" publish --githubBranch "main" -p "$VSCE_TOKEN"
+	npx "@vscode/vsce" verify-pat -p "$VSCE_PAT" benspaulding
+	npx "@vscode/vsce" publish -p "$VSCE_PAT" --githubBranch "main"
 
 # publish extension to OVSX
 [confirm]
 publish-ovsx:
-	npx ovsx publish --baseImagesUrl "https://github.com/benspaulding/vscode-procfile/raw/main/" -p "$OVSX_TOKEN"
+	npx ovsx verify-pat -p "$OVSX_PAT" benspaulding
+	npx ovsx publish -p "$OVSX_PAT" --baseImagesUrl "https://github.com/benspaulding/vscode-procfile/raw/main/"
 
 
 
