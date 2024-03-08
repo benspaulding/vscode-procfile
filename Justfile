@@ -25,6 +25,7 @@ f := "false"
 
 src_dir := HERE / "src"
 ext_dir := HERE / "dist"
+out_dir := HERE / "out"
 
 node_dir := HERE / "node_modules"
 node_bin := node_dir / ".bin"
@@ -80,6 +81,7 @@ setup-env:
 		echo "1Password CLI not found; skipping .env setup."
 		exit 0
 	end
+	echo "Creating .env file using 1Password." >&2
 
 	set cmd op inject --account "spaulding.1password.com" -i .env.in
 	set tmpenv (mktemp -t .env)
@@ -125,17 +127,7 @@ setup-venv:
 ## ---------------------------------------------------------------------
 
 # build the extension
-build: build-dist build-lint build-fmt
-	#!/usr/bin/env fish
-	mkdir -p "{{ ext_dir }}"
-	for file in {README,CHANGELOG}.md LICENSE.txt
-		cp $file "{{ ext_dir }}"/
-	end
-	cp -r "{{ src_dir }}"/* "{{ ext_dir }}"/
-
-# build extension javascript
-build-dist:
-	npm run compile
+build: build-lint build-fmt build-dist
 
 # lint all files
 build-lint:
@@ -146,14 +138,16 @@ build-lint:
 build-fmt:
 	npm run format
 
-# package up as extension
-build-ext: build-dist
-	#!/usr/bin/env fish
-	set -gx VSCE_TOKEN (op --account "spaulding.1password.com" read "op://Personal/Microsoft/Azure DevOps/F358CDCEC7204C3D81A6EF8E8D557445")
-	set -gx OVSX_TOKEN (op --account "spaulding.1password.com" read "op://Personal/Open VSX/81801189F2064ECDB4F62A9FBECD673E")
+# build extension javascript
+build-dist:
+	npm run esbuild
 
-	# Probably already done
-	npm install -g "@vscode/vsce" ovsx
+# package up as extension
+build-ext:
+	#!/usr/bin/env fish
+
+	# Package minified extension
+	npm run vscode:prepublish
 
 	# Good to review
 	npx "@vscode/vsce" ls
@@ -189,6 +183,7 @@ clean: clean-dist clean-node clean-venv
 # remove built extension files
 clean-dist:
 	rm -rf "{{ ext_dir }}"
+	rm -rf "{{ out_dir }}"
 
 # un-setup node environment
 clean-node:

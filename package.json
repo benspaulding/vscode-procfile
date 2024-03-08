@@ -77,13 +77,16 @@
     "publisherId": "27f62f83-b01c-4b89-b543-4dbb2d4155e8"
   },
   "scripts": {
-    "vscode:prepublish": "npm run compile",
-    "compile": "tsc -p ./",
-    "lint": "eslint . --ext={j,t}s --fix && npm run format",
+    "vscode:prepublish": "npm run esbuild-base -- --minify",
+    "esbuild-base": "esbuild ./src/extension.ts --bundle --outfile=dist/extension.js --external:vscode --format=cjs --platform=node",
+    "esbuild": "npm run esbuild-base -- --sourcemap",
+    "esbuild-watch": "npm run esbuild-base -- --sourcemap --watch",
+    "ts-compile": "tsc -p ./",
+    "ts-watch": "npm run ts-compile -- -w",
+    "lint": "eslint . --ext={j,t}s --fix",
     "format": "prettier '**/*.{j,t}s' '**/*.json' '**/*.md' '**/*.y*ml' --write",
-    "watch": "tsc -p ./ -w",
-    "pretest": "npm run compile && npm run lint",
-    "test": "node ./dist/test/runTest.js"
+    "pretest": "npm run compile && npm run lint && npm run format",
+    "test": "node ./out/test/runTest.js"
   },
   "devDependencies": {
     "@tsconfig/node20": "*",
@@ -95,6 +98,7 @@
     "@typescript-eslint/parser": "*",
     "@vscode/test-electron": "*",
     "@vscode/vsce": "*",
+    "esbuild": "^0.20.1",
     "eslint": "*",
     "eslint-config-prettier": "*",
     "eslint-plugin-prettier": "*",

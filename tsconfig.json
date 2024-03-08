@@ -4,7 +4,7 @@
 	"extends": "@tsconfig/node20/tsconfig.json",
 	"compilerOptions": {
 		"rootDir": "src",
-		"outDir": "dist",
+		"outDir": "out",
 		"noFallthroughCasesInSwitch": true,
 		"noImplicitOverride": true,
 		"noImplicitReturns": true,
