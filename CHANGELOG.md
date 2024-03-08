@@ -2,7 +2,8 @@
 
 ## 1.1.8
 
-Update dependencies.
+- Update dependencies.
+- Add development tooling, e.g., `boostrap`, `Justfile`, `Brewfile`.
 
 ## 1.1.7
 

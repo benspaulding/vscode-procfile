@@ -140,3 +140,28 @@ comments, process, or errors, Foreman’s syntax is recognized by this extension
 | valid process     |  ✓  |
 | ignored / comment |  #  |
 | error / hang      |  ✗  |
+
+## Development
+
+You can get an environment running however works for you, but scripts are available to
+do most of the work. Before running them you must have:
+
+1. a working [Homebrew](https://brew.sh) installation
+2. a working [Node.js](https://nodejs.org) installation
+3. a working [Python](https://python.org) installation
+
+At that point you can run the [`bootstrap`](./bootstrap) script. (It can be safely run
+multiple times, but it need only be run once.)
+
+```shell
+./bootstrap
+```
+
+From that point on the [`Justfile`](./Justfile) should do what you need. For example:
+
+```shell
+just ls
+just setup
+just build
+just clean
+```
