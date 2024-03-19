@@ -56,6 +56,7 @@ async function formatDocumentLines(
 	stop: number,
 ): Promise<vsc.TextEdit[]> {
 	const edits: vsc.TextEdit[] = [];
+  const insertSpace = vsc.workspace.getConfiguration("procfile").get<boolean>("insertSpace");
 	let i = start;
 	while (i < stop) {
 		const line = document.lineAt(i);
@@ -65,7 +66,7 @@ async function formatDocumentLines(
 					line.range,
 					core.ProcessDef.fmtString(
 						line.text,
-						vsc.workspace.getConfiguration('procfile').get('insertSpace'),
+						insertSpace,
 					),
 				),
 			);
